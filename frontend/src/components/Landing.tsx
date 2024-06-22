@@ -1,5 +1,17 @@
-const Landing = () => {
-  return <div className="text-red-700">Landing</div>;
-};
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default Landing;
+export const Landing = () => {
+  const [name, setName] = useState("");
+  return (
+    <div className="text-red-700">
+      <input
+        type="text"
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+      />
+      <Link to={`/room/?name=${name}`}>Join</Link>
+    </div>
+  );
+};
